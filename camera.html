@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Camera Service | ServiceBookingPro</title>
+
+    <!-- Internal CSS for quick styling -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #222;
+            padding: 15px 0;
+            color: #fff;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 90%;
+            margin: auto;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 16px;
+        }
+        
+        nav ul li a.active {
+            font-weight: bold;
+            border-bottom: 2px solid #fff;
+        }
+        
+        .service-details {
+            width: 90%;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-details h2 {
+            margin-top: 0;
+        }
+        
+        .media-gallery {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .media-gallery img,
+        .media-gallery video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .rating-section {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff7e6;
+            border-left: 5px solid #f9b233;
+            border-radius: 5px;
+        }
+        
+        .reviews-section {
+            margin-top: 20px;
+        }
+        
+        .review {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            border-left: 5px solid #007bff;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            background: #007bff;
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        footer {
+            margin-top: 40px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <h1>ServiceBookingPro</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-details">
+        <h2>📷 Camera Service</h2>
+        <p>Professional photographers to capture your special moments at events and weddings.</p>
+
+        <div class="media-gallery">
+            <img src="camera1.jpg" alt="Wedding photography">
+            <img src="camera2.jpg" alt="Event photography">
+
+            <video controls>
+      <source src="photographer.mp4" type="video/mp4">
+    </video>
+        </div>
+
+        <div class="rating-section">
+            <h3>⭐ Average Rating: 4.8 / 5</h3>
+            <p>Based on <strong>130</strong> customer reviews</p>
+        </div>
+
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+
+            <div class="review">
+                <p><strong>Aarav S.</strong> ⭐⭐⭐⭐⭐</p>
+                <p>“Amazing photos, captured every moment perfectly!”</p>
+            </div>
+
+            <div class="review">
+                <p><strong>Simran P.</strong> ⭐⭐⭐⭐</p>
+                <p>“Professional and friendly photographer, highly recommended.”</p>
+            </div>
+        </div>
+
+        <a href="booking.html" class="btn">Book Photographer Now</a>
+    </section>
+
+    <footer>
+        <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

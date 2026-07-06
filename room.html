@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deluxe Room | ServiceBookingPro</title>
+
+    <!-- INTERNAL CSS -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f4f4f4;
+        }
+        /* Header */
+        
+        header {
+            background: #111;
+            padding: 15px 0;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1100px;
+            margin: auto;
+            padding: 0 20px;
+        }
+        
+        nav h1 {
+            color: #fff;
+            margin: 0;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        
+        nav ul li a.active,
+        nav ul li a:hover {
+            color: #00c6ff;
+        }
+        /* Service Section */
+        
+        .service-details {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-details h2 {
+            margin-bottom: 10px;
+        }
+        
+        .media-gallery {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .media-gallery img,
+        .media-gallery video {
+            width: 32%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        /* Ratings */
+        
+        .rating-section {
+            background: #e8f8ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        /* Reviews */
+        
+        .reviews-section .review {
+            background: #fafafa;
+            padding: 12px;
+            border-left: 4px solid #00aaff;
+            margin-bottom: 15px;
+            border-radius: 5px;
+        }
+        /* Button */
+        
+        .btn {
+            display: inline-block;
+            background: #0077ff;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        
+        .btn:hover {
+            background: #0059c9;
+        }
+        /* Footer */
+        
+        footer {
+            text-align: center;
+            background: #111;
+            color: white;
+            padding: 12px 0;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>ServiceBookingPro</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-details">
+        <h2>🏨 Deluxe Room</h2>
+        <p>Experience luxury and comfort with our stylish deluxe room featuring premium amenities.</p>
+
+        <div class="media-gallery">
+            <img src="deluxe1.jpg" alt="Deluxe room interior">
+            <img src="deluxe2.jpg" alt="Hotel deluxe room bed area">
+            <video controls>
+      <source src="deluxe.mp4" type="video/mp4">
+    </video>
+        </div>
+
+        <div class="rating-section">
+            <h3>⭐ Average Rating: 4.7 / 5</h3>
+            <p>Based on 220 customer reviews</p>
+        </div>
+
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+
+            <div class="review">
+                <p><strong>Amit R.</strong> ⭐⭐⭐⭐⭐</p>
+                <p>“Amazing stay! Clean room, beautiful interior, and excellent service.”</p>
+            </div>
+
+            <div class="review">
+                <p><strong>Shruti S.</strong> ⭐⭐⭐⭐</p>
+                <p>“Comfortable and spacious room. Worth the price.”</p>
+            </div>
+
+        </div>
+
+        <a href="booking.html" class="btn">Book Deluxe Room</a>
+    </section>
+
+    <footer>
+        <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Swimming Pool Service | ServiceBookingPro</title>
+
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+        
+        header {
+            background: #222;
+            color: white;
+            padding: 15px 0;
+        }
+        
+        nav {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+        }
+        
+        nav ul li a.active {
+            text-decoration: underline;
+        }
+        
+        .service-details {
+            width: 90%;
+            margin: 40px auto;
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-details h2 {
+            font-size: 32px;
+        }
+        
+        .media-gallery {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .media-gallery img,
+        .media-gallery video {
+            width: 32%;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        .rating-section {
+            margin-top: 25px;
+            background: #e0f7fa;
+            padding: 15px;
+            border-left: 5px solid #00bcd4;
+            border-radius: 8px;
+        }
+        
+        .reviews-section {
+            margin-top: 25px;
+        }
+        
+        .review {
+            background: #f1f1f1;
+            padding: 12px;
+            border-radius: 6px;
+            margin-bottom: 12px;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 12px 20px;
+            background: #00bcd4;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+        
+        footer {
+            background: #222;
+            color: white;
+            text-align: center;
+            padding: 12px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>ServiceBookingPro</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-details">
+        <h2>🏊 Swimming Pool Service</h2>
+        <p>Book luxury swimming pool access with clean facilities, lifeguard support, and premium experience.</p>
+
+        <div class="media-gallery">
+            <img src="pool1.jpg" alt="Beautiful swimming pool">
+            <img src="pool2.jpg" alt="Pool area">
+            <video controls>
+      <source src="pool.mp4" type="video/mp4">
+    </video>
+        </div>
+
+        <div class="rating-section">
+            <h3> Average Rating: 4.9 / 5</h3>
+            <p>Based on 160 customer reviews</p>
+        </div>
+
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+
+            <div class="review">
+                <p><strong>Arjun M.</strong> </p>
+                <p>“Pool was extremely clean and well-maintained. Great experience!”</p>
+            </div>
+
+            <div class="review">
+                <p><strong>Lavanya S.</strong> </p>
+                <p>“Loved the ambiance. Perfect for weekend relaxation.”</p>
+            </div>
+        </div>
+
+        <a href="booking.html" class="btn">Book Pool Service</a>
+    </section>
+
+    <footer>
+        <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

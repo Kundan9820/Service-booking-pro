@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Service | ServiceBookingPro</title>
+
+    <!-- Internal CSS -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f9fc;
+            color: #222;
+        }
+        /* NAVBAR */
+        
+        header {
+            background: #222;
+            padding: 15px 0;
+        }
+        
+        nav {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav h1 {
+            color: #fff;
+            font-size: 24px;
+            letter-spacing: 1px;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 5px;
+        }
+        
+        nav ul li a:hover,
+        nav ul li a.active {
+            background: #ff9800;
+        }
+        /* CONTAINER */
+        
+        .service-details {
+            width: 90%;
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-details h2 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        /* GALLERY */
+        
+        .media-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .media-gallery img,
+        .media-gallery video {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 8px;
+            transition: transform .3s;
+            cursor: pointer;
+        }
+        
+        .media-gallery img:hover,
+        .media-gallery video:hover {
+            transform: scale(1.05);
+        }
+        /* REVIEWS */
+        
+        .reviews-section .review {
+            background: #f1f1f1;
+            padding: 12px 15px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            border-left: 4px solid #ff9800;
+        }
+        /* BUTTON */
+        
+        .btn {
+            display: inline-block;
+            margin-top: 20px;
+            background: #ff9800;
+            color: white;
+            padding: 12px 22px;
+            text-decoration: none;
+            font-size: 16px;
+            border-radius: 6px;
+            transition: .3s;
+            font-weight: bold;
+        }
+        
+        .btn:hover {
+            background: #e68900;
+        }
+        /* FOOTER */
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            margin-top: 40px;
+            background: #222;
+            color: #fff;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>ServiceBookingPro</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-details">
+        <h2>🚗 Driver Service</h2>
+        <p>Hire verified and experienced drivers for personal or business use.</p>
+
+        <!-- Gallery -->
+        <div class="media-gallery">
+            <img src="driver1.jpg" alt="Driver with car">
+            <img src="driver2.jpg" alt="Driver service">
+            <video controls>
+      <source src="driver.mp4" type="video/mp4">
+    </video>
+        </div>
+
+        <!-- Rating -->
+        <div class="rating-section">
+            <h3>⭐ Average Rating: 4.7 / 5</h3>
+            <p>Based on 88 customer reviews</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+            <div class="review">
+                <p><strong>Neha T.</strong> ⭐⭐⭐⭐⭐</p>
+                <p>“Driver was punctual, professional, and courteous.”</p>
+            </div>
+            <div class="review">
+                <p><strong>Ravi S.</strong> ⭐⭐⭐⭐</p>
+                <p>“Good driving experience, highly recommended.”</p>
+            </div>
+        </div>
+
+        <a href="booking.html" class="btn">Book Driver Now</a>
+    </section>
+
+    <footer>
+        <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

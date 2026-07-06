@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Book a Service — ServiceBookingPro</title>
+
+    <style>
+         :root {
+            --accent: #00d4b4;
+            --accent-2: #0077ff;
+            --glass: rgba(255, 255, 255, 0.08);
+            --card-bg: rgba(255, 255, 255, 0.06);
+            --muted: rgba(255, 255, 255, 0.85);
+            --danger: #ff4d4f;
+            --maxw: 1180px;
+        }
+        
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            font-family: Inter, system-ui, Arial, sans-serif;
+            background: #071426;
+            color: #fff
+        }
+        
+        .hero {
+            position: relative;
+            height: 62vh;
+            min-height: 420px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .hero video.bg {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+            filter: brightness(.45);
+        }
+        
+        .hero .overlay {
+            position: relative;
+            z-index: 5;
+            width: 90%;
+            max-width: var(--maxw);
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+        
+        .hero .left {
+            flex: 1;
+            padding: 36px;
+            backdrop-filter: blur(6px);
+        }
+        
+        .brand {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: 0.6px;
+            color: var(--accent);
+        }
+        
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 36px
+        }
+        
+        p.lead {
+            margin: 0 0 16px 0;
+            color: #e6fbf6;
+            opacity: 0.95
+        }
+        
+        .cta-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 18px;
+            align-items: center;
+        }
+        
+        .btn-hero {
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            border: none;
+            padding: 12px 18px;
+            border-radius: 10px;
+            color: #002;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            padding: 10px 14px;
+            border-radius: 10px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .badge-offer {
+            background: linear-gradient(90deg, #ff6b6b, #ffb86b);
+            color: #111;
+            padding: 8px 12px;
+            border-radius: 999px;
+            font-weight: 700;
+            display: inline-block
+        }
+        
+        .carousel {
+            width: 600px;
+            max-width: 40%;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 36px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0.03), rgba(0, 0, 0, 0.18));
+        }
+        
+        .slides {
+            display: flex;
+            transition: transform .45s cubic-bezier(.2, .9, .2, 1);
+        }
+        
+        .slide {
+            min-width: 100%;
+            height: 320px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .carousel-controls {
+            display: flex;
+            gap: 8px;
+            justify-content: center;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.12), transparent)
+        }
+        
+        .floating-book {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            z-index: 1000;
+            background: linear-gradient(90deg, var(--accent), var(--accent-2));
+            padding: 14px 18px;
+            border-radius: 14px;
+            color: #002;
+            font-weight: 800;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+        }
+        
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: linear-gradient(0deg, rgba(2, 6, 23, 0.7), rgba(2, 6, 23, 0.85));
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1200;
+            padding: 20px;
+        }
+        
+        .booking-card {
+            width: 900px;
+            max-width: 100%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+            border-radius: 14px;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.6);
+            display: flex;
+            gap: 18px;
+            overflow: hidden;
+        }
+        
+        .card-left {
+            flex: 1.05;
+            padding: 20px;
+            border-right: 1px solid rgba(255, 255, 255, 0.04);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .card-right {
+            width: 380px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(0, 0, 0, 0.12));
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        label {
+            display: block;
+            font-size: 13px;
+            color: #d9fdf6;
+            margin-top: 8px;
+        }
+        
+        input[type="text"],
+        input[type="email"],
+        input[type="date"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: transparent;
+            color: #fff;
+        }
+        
+        textarea {
+            min-height: 84px;
+            resize: vertical;
+        }
+        
+        .row-2 {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .small {
+            flex: 1
+        }
+        
+        .offer-timer {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.04);
+            padding: 10px;
+            border-radius: 8px;
+            color: #ffefda;
+            font-weight: 700;
+        }
+        
+        .price-block {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--accent);
+        }
+        
+        .pay-methods {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px
+        }
+        
+        .pay-method {
+            padding: 8px 10px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.02)
+        }
+        
+        .pay-method.active {
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            transform: translateY(-3px);
+            border-color: var(--accent);
+        }
+        
+        .actions {
+            margin-top: 8px;
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+        
+        .btn-primary {
+            background: var(--accent);
+            color: #003;
+            border: none;
+            padding: 12px 16px;
+            border-radius: 8px;
+            font-weight: 800;
+            cursor: pointer;
+        }
+        
+        .btn-ghost {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 12px;
+            border-radius: 8px;
+            color: #fff;
+            cursor: pointer;
+        }
+        
+        .small-muted {
+            color: #bcd;
+            font-size: 13px;
+            margin-top: 6px
+        }
+        
+        .payment-modal {
+            width: 540px;
+            max-width: 95%;
+            background: #071626;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);
+        }
+        
+        .pm-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .upi-list {
+            display: flex;
+            gap: 8px;
+            margin-top: 12px;
+            flex-wrap: wrap;
+        }
+        
+        .upi-btn {
+            padding: 10px 12px;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #fff, #fff);
+            color: #002;
+            font-weight: 700;
+            cursor: pointer;
+        }
+        
+        @media(max-width:980px) {
+            .hero .overlay {
+                flex-direction: column;
+                align-items: flex-start
+            }
+            .carousel {
+                max-width: 100%;
+                width: 100%
+            }
+            .card-right {
+                display: none
+            }
+            .booking-card {
+                flex-direction: column;
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero" aria-label="Hero section">
+        <video class="bg" autoplay muted loop playsinline>
+    <source src="hero.mp4" type="video/mp4">
+  </video>
+
+        <div class="overlay">
+            <div class="left">
+                <div class="brand">ServiceBookingPro</div>
+                <h1>Book top services — fast & secure</h1>
+                <p class="lead">Events, home services, tutoring and more. Limited offers live now — book with one-time discounts and multiple payment options.</p>
+
+                <div class="cta-row">
+                    <button class="btn-hero" id="openBooking">Book Now</button>
+                    <button class="btn-outline" id="viewServices">View Services</button>
+                    <div style="flex:1"></div>
+                    <div class="badge-offer" id="badgeOffer">20% OFF</div>
+                </div>
+
+                <div style="height:12px"></div>
+                <div style="display:flex;gap:12px;align-items:center">
+                    <div class="small-muted">Safe payments</div>
+                    <div style="width:8px"></div>
+                    <div class="small-muted">Verified professionals</div>
+                </div>
+            </div>
+            <div class="carousel" aria-hidden="false">
+                <div class="slides" id="slides">
+                    <img class="slide" src="dj.jpg" alt="Service 1" />
+                    <img class="slide" src="camera.jpg" alt="Service 2" />
+                    <img class="slide" src="pool.jpg" alt="Service 3" />
+                </div>
+                <div class="carousel-controls" id="controls"></div>
+            </div>
+        </div>
+    </section>
+
+    <button class="floating-book" id="floatingBook">Book Now — Get Offer</button>
+
+    <div class="modal-backdrop" id="modal">
+        <div class="booking-card" role="dialog" aria-modal="true" aria-labelledby="bookHeading">
+            <div class="card-left">
+                <h2 id="bookHeading">Confirm Your Booking</h2>
+
+                <label for="fullname">Full Name</label>
+                <input id="fullname" name="fullname" type="text" placeholder="Your full name" />
+
+                <label for="email">Email</label>
+                <input id="email" name="email" type="email" placeholder="you@example.com" />
+
+                <div class="row-2">
+                    <div class="small">
+                        <label for="service">Service</label>
+                        <select id="service" name="service">
+            <option value="">Select a service</option>
+            <option>Deluxe Room</option>
+            <option>Luxury Suite</option>
+            <option>Conference Hall</option>
+            <option>Tuition Teacher</option>
+            <option>Swimming Pool</option>
+            <option>Laundry Service</option>
+            <option>Spa Service</option>
+            <option>Barber Service</option>
+          </select>
+                    </div>
+                    <div class="small">
+                        <label for="date">Date</label>
+                        <input id="date" name="date" type="date" />
+                    </div>
+                </div>
+
+                <label for="location">Location (auto-detect / edit)</label>
+                <div style="display:flex; gap:8px; align-items:center">
+                    <input id="location" name="location" type="text" placeholder="City / Area / Landmark" />
+                    <button class="btn-ghost" id="detectLocation" title="Detect location">📍 Auto</button>
+                </div>
+
+                <label for="message">Message / Requirements</label>
+                <textarea id="message" name="message" placeholder="E.g., need projector, extra chairs..."></textarea>
+
+                <div style="display:flex; gap:8px; align-items:center; margin-top:8px;">
+                    <input type="checkbox" id="applyDiscount" /> <label for="applyDiscount" style="display:inline-block;margin:0">Apply one-time payment discount</label>
+                </div>
+
+                <div style="margin-top:10px; display:flex; gap:10px; align-items:center;">
+                    <div class="offer-timer" id="offerTimer">Offer ends in <strong id="countdown">00:00:00</strong></div>
+                    <div style="flex:1"></div>
+                    <div class="price-block" id="priceBlock">Est: ₹<span id="priceValue">1500</span></div>
+                </div>
+
+                <div class="small-muted">We’ll send confirmation to your email and SMS. Booking ID will be generated on submission.</div>
+            </div>
+
+            <div class="card-right">
+                <div style="display:flex; justify-content:space-between; align-items:center">
+                    <div>
+                        <div style="font-size:14px; color:#bff6e7">Secure checkout</div>
+                        <div style="font-weight:800; font-size:20px; margin-top:6px">Complete your booking</div>
+                    </div>
+                    <div style="font-size:13px; color:#bcd">Total</div>
+                </div>
+
+                <div style="margin-top:10px">
+                    <div style="font-size:12px; color:#bcd">Select payment method</div>
+                    <div class="pay-methods" id="payMethods">
+                        <div class="pay-method active" data-method="Cash">Cash</div>
+                        <div class="pay-method" data-method="UPI">UPI (PhonePe / GPay)</div>
+                        <div class="pay-method" data-method="Card">Card</div>
+                    </div>
+                </div>
+
+                <div style="margin-top:14px">
+                    <div style="font-size:12px; color:#bcd">Offer code (optional)</div>
+                    <input id="offerCode" placeholder="Enter code (e.g. SAVE20)" />
+                </div>
+
+                <div class="actions">
+                    <button class="btn-primary" id="proceedBtn">Proceed to Pay</button>
+                    <button class="btn-ghost" id="closeBtn">Cancel</button>
+                </div>
+
+                <div class="small-muted">Accepted: PhonePe, Google Pay, Paytm, major cards. (Demo mode)</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-backdrop" id="paymentModal" style="display:none;">
+        <div class="payment-modal" role="dialog" aria-modal="true">
+            <div class="pm-header">
+                <div>
+                    <div style="color:#9fffdc; font-weight:800">Simulated Payment</div>
+                    <div style="color:#bcd; font-size:13px; margin-top:6px">Choose UPI app or simulate card payment</div>
+                </div>
+                <div><button class="btn-ghost" id="pmClose">Close</button></div>
+            </div>
+
+            <div style="margin-top:12px">
+                <div style="font-size:13px; color:#bcd">Amount</div>
+                <div style="font-weight:800; font-size:22px; margin-top:6px">₹<span id="payAmount">1500</span></div>
+            </div>
+
+            <div style="margin-top:12px">
+                <div style="font-size:13px; color:#bcd">Pay with</div>
+                <div class="upi-list">
+                    <div class="upi-btn" data-upi="phonepe">PhonePe</div>
+                    <div class="upi-btn" data-upi="gpay">Google Pay</div>
+                    <div class="upi-btn" data-upi="paytm">Paytm</div>
+                </div>
+            </div>
+
+            <div style="margin-top:16px; display:flex; gap:8px;">
+                <button class="btn-primary" id="simulateSuccess">Simulate Success</button>
+                <button class="btn-ghost" id="simulateFail">Simulate Fail</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Success Toast -->
+    <div id="toast" style="position:fixed; right:22px; top:22px; background:linear-gradient(90deg,var(--accent),var(--accent-2)); color:#002; padding:12px 18px; border-radius:10px; display:none; z-index:1400; font-weight:800;"></div>
+
+    <!-- ====== Scripts ====== -->
+    <script>
+        /* ---------- Carousel ---------- */
+        const slides = document.getElementById('slides');
+        const slideCount = slides.children.length;
+        let idx = 0;
+
+        function showSlide(i) {
+            slides.style.transform = `translateX(${ -i * 100 }%)`;
+        }
+        setInterval(() => {
+            idx = (idx + 1) % slideCount;
+            showSlide(idx);
+        }, 4200);
+
+        /* ---------- Open / Close Booking Modal ---------- */
+        const modal = document.getElementById('modal');
+        const paymentModal = document.getElementById('paymentModal');
+        const openBooking = document.getElementById('openBooking');
+        const floatingBook = document.getElementById('floatingBook');
+        const closeBtn = document.getElementById('closeBtn');
+        openBooking.addEventListener('click', () => modal.style.display = 'flex');
+        floatingBook.addEventListener('click', () => modal.style.display = 'flex');
+        closeBtn.addEventListener('click', () => modal.style.display = 'none');
+        document.getElementById('viewServices').addEventListener('click', () => window.location.href = 'services.html');
+
+        /* ---------- Offer Timer (limited-time) ---------- */
+        // Set offer end time (5 days from now or fixed date). Adjust as needed.
+        const offerEnds = new Date();
+        offerEnds.setHours(offerEnds.getHours() + 48); // 48 hours from now
+        function updateTimer() {
+            const now = new Date();
+            const diff = Math.max(0, offerEnds - now);
+            const h = Math.floor(diff / 1000 / 3600),
+                m = Math.floor((diff / 1000 / 60) % 60),
+                s = Math.floor((diff / 1000) % 60);
+            document.getElementById('countdown').innerText = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+            if (diff <= 0) {
+                document.getElementById('badgeOffer').style.display = 'none';
+                document.getElementById('offerTimer').innerText = 'Offer expired';
+                document.getElementById('applyDiscount').disabled = true;
+            }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        /* ---------- Price Calculation (example) ---------- */
+        const basePrices = {
+            'Deluxe Room': 3000,
+            'Luxury Suite': 7500,
+            'Conference Hall': 4000,
+            'Tuition Teacher': 500,
+            'Swimming Pool': 500,
+            'Laundry Service': 200,
+            'Spa Service': 2000,
+            'Barber Service': 300
+        };
+        const priceValue = document.getElementById('priceValue');
+        const serviceSelect = document.getElementById('service');
+        const discountCheckbox = document.getElementById('applyDiscount');
+        const offerCodeInput = document.getElementById('offerCode');
+
+        function calcPrice() {
+            const srv = serviceSelect.value;
+            let p = basePrices[srv] || 1500;
+            // simple per-night / per-hour vs per session ambiguity not handled — this is example
+            let discount = 0;
+            if (discountCheckbox.checked) discount += 0.20; // 20% one-time discount
+            // sample offer code
+            const code = (offerCodeInput.value || '').trim();
+            if (code.toUpperCase() === 'SAVE25') {
+                discount += 0.25;
+            } // stackable for demo
+            // cap discount to 50%
+            discount = Math.min(discount, 0.5);
+            const finalPrice = Math.round(p * (1 - discount));
+            priceValue.innerText = finalPrice;
+            document.getElementById('payAmount').innerText = finalPrice;
+        }
+        serviceSelect.addEventListener('change', calcPrice);
+        discountCheckbox.addEventListener('change', calcPrice);
+        offerCodeInput.addEventListener('input', calcPrice);
+        calcPrice();
+
+        /* ---------- Location auto-detect ---------- */
+        const detectBtn = document.getElementById('detectLocation');
+        const locationInput = document.getElementById('location');
+        detectBtn.addEventListener('click', () => {
+            if (!navigator.geolocation) {
+                alert('Geolocation not supported in your browser');
+                return;
+            }
+            detectBtn.disabled = true;
+            detectBtn.innerText = 'Locating...';
+            navigator.geolocation.getCurrentPosition(async(pos) => {
+                const lat = pos.coords.latitude,
+                    lon = pos.coords.longitude;
+                // Attempt to reverse-geocode using free service (no server) — use openstreetmap Nominatim
+                try {
+                    const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${lat}&lon=${lon}`);
+                    const data = await res.json();
+                    locationInput.value = data.display_name || `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+                } catch (e) {
+                    locationInput.value = `${lat.toFixed(4)}, ${lon.toFixed(4)}`;
+                }
+                detectBtn.disabled = false;
+                detectBtn.innerText = '📍 Auto';
+            }, (err) => {
+                alert('Unable to get location: ' + err.message);
+                detectBtn.disabled = false;
+                detectBtn.innerText = '📍 Auto';
+            }, {
+                timeout: 10000
+            });
+        });
+
+        /* ---------- Payment method selection ---------- */
+        document.querySelectorAll('.pay-method').forEach(el => {
+            el.addEventListener('click', () => {
+                document.querySelectorAll('.pay-method').forEach(x => x.classList.remove('active'));
+                el.classList.add('active');
+            });
+        });
+
+        /* ---------- Proceed to payment (open modal) ---------- */
+        const proceedBtn = document.getElementById('proceedBtn');
+        const pmClose = document.getElementById('pmClose');
+        const paymentModalEl = document.getElementById('paymentModal');
+        proceedBtn.addEventListener('click', () => {
+            // simple validation
+            const name = document.getElementById('fullname').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const service = serviceSelect.value;
+            const date = document.getElementById('date').value;
+            if (!name || !email || !service || !date) {
+                alert('Please fill Name, Email, Service and Date');
+                return;
+            }
+
+            // if Cash selected, skip online payment and submit immediately
+            const pm = document.querySelector('.pay-method.active').dataset.method;
+            if (pm === 'Cash') {
+                submitBooking('Cash');
+                return;
+            }
+
+            // else open simulated payment modal
+            paymentModalEl.style.display = 'flex';
+        });
+
+        /* ---------- Payment simulation controls ---------- */
+        document.getElementById('simulateSuccess').addEventListener('click', () => {
+            paymentModalEl.style.display = 'none';
+            submitBooking(document.querySelector('.pay-method.active').dataset.method, true);
+        });
+        document.getElementById('simulateFail').addEventListener('click', () => {
+            alert('Simulated payment failed. Please try again or choose Cash.');
+        });
+        pmClose.addEventListener('click', () => paymentModalEl.style.display = 'none');
+
+        /* ---------- Submit booking to server ---------- */
+        async function submitBooking(paymentMethod, paid = true) {
+            // prepare data
+            const data = {
+                fullname: document.getElementById('fullname').value.trim(),
+                email: document.getElementById('email').value.trim(),
+                service: document.getElementById('service').value,
+                date: document.getElementById('date').value,
+                message: document.getElementById('message').value.trim(),
+                location: document.getElementById('location').value.trim(),
+                paymentMethod: paymentMethod,
+                discountApplied: document.getElementById('applyDiscount').checked ? 'true' : 'false',
+                offerCode: document.getElementById('offerCode').value.trim(),
+                bookingId: 'BK' + Date.now().toString(36).toUpperCase().slice(-8),
+                amountPaid: document.getElementById('payAmount').innerText || document.getElementById('priceValue').innerText
+            };
+
+            // show loader on button
+            proceedBtn.disabled = true;
+            proceedBtn.innerText = 'Processing...';
+
+            try {
+                // send as FormData so servlet receives request.getParameter(...)
+                const fd = new FormData();
+                for (const k in data) fd.append(k, data[k]);
+
+                const resp = await fetch('/BookService', {
+                    method: 'POST',
+                    body: fd
+                });
+                // you can also POST json: fetch('/BookServiceJson', {headers: {'Content-Type':'application/json'}, body: JSON.stringify(data) })
+                if (!resp.ok) throw new Error('Network response not ok');
+
+                const text = await resp.text(); // servlet may return html/text
+                // show success toast
+                showToast('Booking Confirmed — ID: ' + data.bookingId);
+                // close modal after short delay
+                setTimeout(() => {
+                    modal.style.display = 'none';
+                    proceedBtn.disabled = false;
+                    proceedBtn.innerText = 'Proceed to Pay';
+                }, 900);
+
+                // Optionally show a confirmation detail
+                alert('Booking successful!\nBooking ID: ' + data.bookingId + '\nWe sent confirmation to: ' + data.email);
+            } catch (err) {
+                console.error(err);
+                alert('Failed to submit booking. Try again later.');
+                proceedBtn.disabled = false;
+                proceedBtn.innerText = 'Proceed to Pay';
+            }
+        }
+
+        /* ---------- Utility: toast ---------- */
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.innerText = msg;
+            t.style.display = 'block';
+            setTimeout(() => t.style.display = 'none', 4500);
+        }
+
+        /* ---------- Small: close payment modal on backdrop click ---------- */
+        document.querySelectorAll('.modal-backdrop').forEach(m => {
+            m.addEventListener('click', (e) => {
+                if (e.target === m) {
+                    m.style.display = 'none';
+                }
+            });
+        });
+
+        /* ---------- Init: set defaults ---------- */
+        document.addEventListener('DOMContentLoaded', () => {
+            // default: pick first pay method
+            document.querySelectorAll('.pay-method')[0].classList.add('active');
+            // populate today's date min
+            const dateEl = document.getElementById('date');
+            const d = new Date();
+            d.setDate(d.getDate() + 1); // min date is tomorrow
+            dateEl.min = d.toISOString().split('T')[0];
+        });
+    </script>
+
+</body>
+
+</html>

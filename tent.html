@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tent Service | ServiceBookingPro</title>
+
+    <!-- Internal CSS Styling -->
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f5f5f5;
+        }
+        
+        header {
+            background: #222;
+            padding: 15px 0;
+            color: #fff;
+        }
+        
+        nav {
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 16px;
+        }
+        
+        nav ul li a.active {
+            border-bottom: 2px solid #fff;
+        }
+        
+        .service-details {
+            width: 90%;
+            margin: 30px auto;
+            background: #fff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-details h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+        
+        .media-gallery {
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .media-gallery img,
+        .media-gallery video {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 0 0 12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .rating-section {
+            margin-top: 25px;
+            padding: 15px;
+            background: #fff7e6;
+            border-left: 5px solid #ff9900;
+            border-radius: 7px;
+        }
+        
+        .reviews-section {
+            margin-top: 25px;
+        }
+        
+        .review {
+            background: #f0f0f0;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+            border-left: 5px solid #007bff;
+        }
+        
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 18px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+        
+        .btn:hover {
+            background: #0056b3;
+        }
+        
+        footer {
+            margin-top: 40px;
+            background: #222;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <nav>
+            <h1>ServiceBookingPro</h1>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="booking.html">Book Now</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="service-details">
+        <h2>⛺ Tent Service</h2>
+        <p>High-quality tents for weddings, parties, and outdoor events — customized to your theme and size needs.</p>
+
+        <!-- Media Gallery -->
+        <div class="media-gallery">
+            <img src="tent3.jpg" alt="Wedding tent setup">
+            <img src="tent2.jpg" alt="Outdoor event tent">
+            <video controls>
+      <source src="wedding.mp4" type="video/mp4">
+    </video>
+        </div>
+
+        <!-- Rating Box -->
+        <div class="rating-section">
+            <h3>⭐ Average Rating: 4.7 / 5</h3>
+            <p>Based on 120 customer reviews</p>
+        </div>
+
+        <!-- Reviews -->
+        <div class="reviews-section">
+            <h3>Customer Reviews</h3>
+
+            <div class="review">
+                <p><strong>Priya R.</strong> ⭐⭐⭐⭐⭐</p>
+                <p>“Beautiful tent arrangement — my wedding looked magical!”</p>
+            </div>
+
+            <div class="review">
+                <p><strong>Vikram S.</strong> ⭐⭐⭐⭐</p>
+                <p>“Good quality tents and fast setup. Reasonable pricing too!”</p>
+            </div>
+        </div>
+
+        <a href="booking.html" class="btn">Book Tent Now</a>
+    </section>
+
+    <footer>
+        <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+    </footer>
+
+</body>
+
+</html>

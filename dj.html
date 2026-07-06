@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DJ Booking | ServiceBookingPro</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      background-color: #111;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.9);
+      padding: 15px 10%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav h1 { color: #fff; }
+    nav ul { list-style: none; display: flex; gap: 20px; }
+    nav ul li a { color: #fff; text-decoration: none; }
+
+    .service-details {
+      padding: 100px 10% 60px;
+      text-align: center;
+    }
+
+    .service-details h2 {
+      font-size: 2.2rem;
+      color: #00bfff;
+    }
+
+    .media-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      justify-content: center;
+      margin: 30px 0;
+    }
+
+    .media-gallery img, .media-gallery video {
+      width: 280px;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+    }
+
+    .reviews-section {
+      background: rgba(255,255,255,0.1);
+      padding: 25px;
+      border-radius: 8px;
+      margin: 40px auto;
+      max-width: 800px;
+      text-align: left;
+    }
+
+    .review {
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .review strong { color: #00bfff; }
+
+    .rating-section {
+      text-align: center;
+      margin: 30px 0;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #007bff;
+      color: #fff;
+      padding: 12px 25px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    .btn:hover { background: #0056b3; }
+
+    footer {
+      background: rgba(0, 0, 0, 0.8);
+      text-align: center;
+      padding: 15px;
+      color: #aaa;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>ServiceBookingPro</h1>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="booking.html">Book Now</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="service-details">
+    <h2>🎵 DJ Booking</h2>
+    <p>Make your event unforgettable with our professional DJs and premium sound setups. Perfect for weddings, parties, and corporate events.</p>
+
+    <div class="media-gallery">
+      <img src="dj deta.jpg" alt="DJ event 1">
+      <img src="dj 4.jpg" alt="DJ event 2">
+      <img src="dj3.jpg" alt="DJ event 3">
+      <video controls>
+        <source src="dj.mp4" type="video/mp4">
+        Your browser does not support video playback.
+      </video>
+    </div>
+
+    <div class="rating-section">
+      <h3>⭐ Average Rating: 4.8 / 5</h3>
+    </div>
+
+    <div class="reviews-section">
+      <h3>Customer Reviews</h3>
+      <div class="review">
+        <p><strong>Rahul S.</strong> ⭐⭐⭐⭐⭐</p>
+        <p>“The DJ was amazing! Everyone loved the playlist and energy.”</p>
+      </div>
+
+      <div class="review">
+        <p><strong>Anita P.</strong> ⭐⭐⭐⭐</p>
+        <p>“Professional setup, great sound system. Totally worth it!”</p>
+      </div>
+
+      <div class="review">
+        <p><strong>Mohit K.</strong> ⭐⭐⭐⭐⭐</p>
+        <p>“Best DJ I’ve ever hired for an event!”</p>
+      </div>
+    </div>
+
+    <a href="booking.html" class="btn">Book DJ Now</a>
+  </section>
+
+  <footer>
+    <p>© 2025 ServiceBookingPro. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
